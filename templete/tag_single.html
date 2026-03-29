@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}タグ: {{ tag_name }}{% endblock %}
+
+{% block content %}
+<h2 class="page-title">「#{{ tag_name }}」の記事一覧</h2>
+
+<div class="post-list">
+    {% for post in posts %}
+    <article class="post-card">
+        <span class="post-date">{{ post.date }}</span>
+        <h3><a href="/articles/{{ post.slug }}.html">{{ post.title }}</a></h3>
+        <p>{{ post.summary }}</p>
+    </article>
+    {% endfor %}
+</div>
+
+<p><a href="/tags/">← タグ一覧へ戻る</a></p>
+{% endblock %}
