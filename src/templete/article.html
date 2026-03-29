@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-area">{{ post.area }}</span>
+            <time class="post-date" datetime="{{ post.date }}">{{ post.date }}</time>
+        </div>
+        <h1 class="post-title">{{ post.title }}</h1>
+        
+        <ul class="post-tags">
+            {% for tag in post.tags %}
+            <li class="tag-item">
+                {# 後ほど作るタグ別一覧ページへのリンクを想定 #}
+                <a href="/tags/{{ tag }}.html">#{{ tag }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </header>
+
+    <div class="post-content">
+        {# ここに記事の本文が入ります #}
+        <p>{{ post.summary }}</p>
+        <div class="dummy-text">
+            （ここに詳細な食レポや写真が入るイメージ）
+        </div>
+    </div>
+
+    <footer class="post-footer">
+        <a href="/">← トップへ戻る</a>
+    </footer>
+</article>
+{% endblock %}

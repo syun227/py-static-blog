@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}東京カフェ巡り - py-static-blog{% endblock %}
+
+{% block content %}
+<section class="home-hero">
+    <h2 class="page-title">最新のカフェレポート</h2>
+    <p class="page-description">東京にあるおすすめのカフェを紹介します。</p>
+</section>
+
+<div class="post-list">
+    {% for post in posts %}
+    <article class="post-card">
+        <header class="post-header">
+            <div class="post-meta">
+                <span class="post-area">{{ post.area }}</span>
+                <time class="post-date">{{ post.date }}</time>
+            </div>
+            <h3 class="post-title"><a href="/articles/{{ post.slug }}.html">{{ post.title }}</a></h3>
+        </header>
+        
+        <p class="post-summary">{{ post.summary }}</p>
+        
+        <ul class="post-tags">
+            {% for tag in post.tags %}
+            <li class="tag-item">#{{ tag }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
