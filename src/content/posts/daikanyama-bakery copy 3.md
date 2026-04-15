@@ -8,6 +8,4 @@ post_image: "/static/images/croissant.jpg"
 details:
   - "朝活"
   - "テラス席"
-  - "パン"
-  - "パン"
 ---
